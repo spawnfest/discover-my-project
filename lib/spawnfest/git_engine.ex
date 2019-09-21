@@ -5,17 +5,20 @@ defmodule GitEngine do
     {"", 0} = System.cmd("git", ["clone", repo, tmp_dir])
     tmp_dir
   end
-
 end
 
 defmodule BranchEngine do
-
-  def analize_branch(repo_dir) do
-    {body, 0} = System.cmd("git", ["log", "--all", "--pretty=format:'%h<->%cn<->%s%Creset'"], cd: repo_dir)
+  def get_commits_in_branch(repo_dir) do
+    repo_dir
+      |> get_commit_history_string()
+      |> Utils.get_commits()
   end
 
+  def get_commit_history_string(repo_dir) do
+    {body, 0} = System.cmd("git", ["log", "--all", "--pretty=format:'%h<->%cn<->%s%Creset'"], cd: repo_dir)
+    body
+  end
 end
-
 
 defmodule Commit do
    defstruct [:hash, :description, :author, :words]
