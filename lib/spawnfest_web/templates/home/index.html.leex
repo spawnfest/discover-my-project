@@ -1,0 +1,5 @@
+<h1> Que onda? </h1>
+<form action="#" phx-submit="add">
+  <%= text_input :todo, :title, placeholder: "What do you want to get done?" %>
+  <%= submit "Add", phx_disable_with: "Adding..." %>
+</form>
