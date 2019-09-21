@@ -6,7 +6,11 @@ defmodule BranchEngine do
   end
 
   def get_commit_history_string(repo_dir) do
-    {body, 0} = System.cmd("git", ["log", "--all", "--pretty=format:'%h<->%cn<->%s%Creset'"], cd: repo_dir)
+    {body, 0} =
+			System.cmd(
+				"git",
+				["log", "--all", "--pretty=format:'%h<->%cn<->%ad<->%s%Creset'"],
+				cd: repo_dir)
     body
   end
 

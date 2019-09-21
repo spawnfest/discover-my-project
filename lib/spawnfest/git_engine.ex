@@ -8,6 +8,6 @@ defmodule GitEngine do
 
 	def get_all_branches(repo_dir) do
     {body, 0} = System.cmd("git", ["branch", "--all"], cd: repo_dir)
-		Utils.get_branches(body)
+		Utils.get_branches_names(body)
 	end
 end
