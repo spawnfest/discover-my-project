@@ -1,18 +1,18 @@
 defmodule SpawnfestWeb.HomeLive do
 
-  use Phoenix.LiveView
+	use Phoenix.LiveView
 	alias SpawnfestWeb.HomeView
 
-  def render(assigns) do
+	def render(assigns) do
 		HomeView.render("index.html", assigns)
-  end
+	end
 
-  def mount(_session, socket) do
-    {:ok, socket}
-  end
+	def mount(_session, socket) do
+		{:ok, socket}
+	end
 
-		def handle_event("add", params, socket) do
-			{:noreply, socket}
-		end
+	def handle_event("add", params, socket) do
+		{:noreply, socket}
+	end
 
 end
