@@ -29,6 +29,13 @@ defmodule SpawnfestTest do
     assert words_counters == words_countes_expected
   end
 
+	test "Getting branches names" do
+		string = "* master\n  remotes/origin/HEAD -> origin/master\n  remotes/origin/cm-component-id\n  remotes/origin/cm-js-interop\n  remotes/origin/cm-live-view-test\n  remotes/origin/cm-mount-opts\n  remotes/origin/cm-refactor-test\n  remotes/origin/gr-array-buffer\n  remotes/origin/gr-upload-channel\n  remotes/origin/jv-live-nav-changes\n  remotes/origin/master\n"
+		branches = Utils.get_branches_names(string)
+		expected_branches = ["jv-live-nav-changes", "gr-upload-channel", "gr-array-buffer", "cm-refactor-test", "cm-mount-opts", "cm-live-view-test", "cm-js-interop", "cm-component-id"]
+		assert branches == expected_branches
+	end
+
   defp get_commits_expected do
     [
       %Commit{

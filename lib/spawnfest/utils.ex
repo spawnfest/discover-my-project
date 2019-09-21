@@ -15,18 +15,33 @@ defmodule Utils do
     List.flatten(words_in_commits)
   end
 
-  def get_words_counters( words ) do
+  def get_words_counters(words) do
     words
       |> Enum.uniq()
       |> get_counters(words)
       |> Enum.sort_by(fn {_word, counter} -> counter end)
   end
 
-  defp get_counters( words_for_find, words ) do
+  defp get_counters(words_for_find, words) do
     for w <- words_for_find do
-      counter = Enum.count( words, fn(word) -> word == w end)
+      counter = Enum.count(words, fn(word) -> word == w end)
       {w, counter}
     end
   end
+
+	def get_authors(commits) do
+		authors = for commit <- commits, do: commit.author
+		List.flatten(authors)
+	end
+
+	def get_branches_names(branches_string) do
+		[_master|[_head| branches]] = String.split(branches_string, "\n  ")
+		[_origin_master|branches] = Enum.reverse(branches)
+		for branch <- branches do
+      ["remotes", "origin", branch_name] =
+				String.split(branch, "/")
+			branch_name
+		end
+	end
 
 end

@@ -15,5 +15,7 @@ defmodule BranchEngine do
       |> Utils.get_list_of_words_in_commits()
       |> Utils.get_words_counters()
   end
+
+	def get_authors_in_branch(commits), do: Utils.get_authors(commits)
 end
 
