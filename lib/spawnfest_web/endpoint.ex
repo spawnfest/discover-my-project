@@ -1,6 +1,7 @@
 defmodule SpawnfestWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :spawnfest
 
+  socket "/live", Phoenix.LiveView.Socket
   socket "/socket", SpawnfestWeb.UserSocket,
     websocket: true,
     longpoll: false

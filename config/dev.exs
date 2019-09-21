@@ -52,7 +52,9 @@ config :spawnfest, SpawnfestWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/spawnfest_web/views/.*(ex)$},
-      ~r{lib/spawnfest_web/templates/.*(eex)$}
+      ~r{lib/spawnfest_web/templates/.*(eex)$},
+      ~r{lib/spawnfest_web/templates/.*(eex)$},
+      ~r{lib/spawnfest_web/live/.*(ex)$}
     ]
   ]
 
