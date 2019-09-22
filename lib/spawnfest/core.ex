@@ -26,21 +26,15 @@ defmodule DiscoverMyProject do
 
   def get_data_from_github_api do
     fn url_repo ->
-      IO.puts("GITHUB API process...")
       GitHubData.get_data_from_github(url_repo)
     end
   end
 
   def clone_and_get_data_from_repo do
     fn url_repo ->
-      IO.puts("REPO CLONING AND ANALYZE process...")
-      IO.puts("1. Starting...")
       repo_dir = GitEngine.clone_repo(url_repo)
-      IO.puts("2. Repo cloned...")
       branches = GitEngine.get_all_branches(repo_dir)
-      IO.puts("3. Branches done")
       branch = BranchEngine.analize_branch(repo_dir)
-      IO.puts("4. DONE!!!")
       {url_repo, branches, branch}
     end
   end
