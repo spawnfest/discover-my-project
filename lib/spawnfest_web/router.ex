@@ -18,8 +18,8 @@ defmodule SpawnfestWeb.Router do
   scope "/", SpawnfestWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    live "/home", HomeLive
+    live "/", HomeLive
+    live "/repo", RepoLive
   end
 
   # Other scopes may use custom stacks.

@@ -1,4 +1,15 @@
-<h1> Que onda? </h1>
 
-<form phx-change="search"><input type="text" name="query" placeholder="Search..." /></form>
+
+<div class="container text-center">
+	<img src="https://avatars1.githubusercontent.com/u/671794?s=200&v=4" width="15%"/>
+	<h1 class="lobster"> Discover My Project </h1>
+	<b> S P A W N F E S T&nbsp; 2019 </b>
+<hr>
+	<p>Instructions: Paste a valid <strong>url</strong> for clone a public git repo from GitHub. </p>
+  <form phx-change="search">
+    <input class="form-control form-control-lg" type="text" name="query" placeholder="Put your https git url" />
+		<br>
+		<%= submit "Analize", phx_disable_with: "Saving...", class: "btn btn-primary btn-block" %>
+  </form>
+</div>
 
