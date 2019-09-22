@@ -1,6 +1,3 @@
-<div class="container">
-</div>
-
 <%= if @url == "error" do %>
   <div class="container text-center">
     <img src="https://avatars1.githubusercontent.com/u/671794?s=200&v=4" width="15%"/>
@@ -9,5 +6,42 @@
     <br><br><a href="http://localhost:4000/" class="btn btn-secondary" > Back! </a>
   </div>
 <% else %>
-  Analizing url... <%= @url %>
+<div class="container pull-right">
+  <small> Analizing url... </small>
+</div>
 <% end %>
+
+<div class="container">
+  <%= if @branches != [] do %>
+		<div class="row">
+			<div class="col-6 text-center">
+		    <h2 class="lobster"> Discover my project </h2>
+        <img src="https://avatars1.githubusercontent.com/u/671794?s=200&v=4" width="30%"/>
+        <br><br>
+        <strong><%= @url %></strong>
+			</div>
+			<div class="col-6">
+				<strong>Branches:</strong><br>
+  	    <%= for branch <- @branches do %>
+  	    	<span class="badge badge-secondary"><%= branch %></span> &nbsp;
+  	    <% end %>
+
+				<br><br>
+
+				<strong>Contributors:</strong><br>
+  	    <%= for author <- @branch.authors do %>
+  	    	<span class="badge badge-info"><%= author %></span> &nbsp;
+  	    <% end %>
+
+				<br><br>
+
+				<strong>Words Used in Commit Descriptions:</strong><br>
+  	    <%= for {word, frequency} <- @branch.words do %>
+  	    	<span class="badge badge-light"><%= word %> <%= frequency %></span> &nbsp;
+  	    <% end %>
+
+			</div>
+		</div>
+  <% end %>
+</div>
+
