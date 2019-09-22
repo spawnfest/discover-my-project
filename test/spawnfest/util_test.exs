@@ -1,4 +1,4 @@
-defmodule SpawnfestTest do
+defmodule UtilTest do
   use ExUnit.Case
 
   test "Getting commits from log" do
