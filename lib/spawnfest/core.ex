@@ -3,10 +3,10 @@ defmodule DiscoverMyProject do
     Spawnfest :: Discover my project :: @carlogilmar :: 2019
   """
   def start_analyze(url_repo) do
-		request_for_execute_in_tasks = [
-			{DiscoverMyProject.clone_and_get_data_from_repo(), url_repo},
-			{DiscoverMyProject.get_data_from_github_api(), url_repo}
-		]
+    request_for_execute_in_tasks = [
+      {DiscoverMyProject.clone_and_get_data_from_repo(), url_repo},
+      {DiscoverMyProject.get_data_from_github_api(), url_repo}
+    ]
 
     res =
       request_for_execute_in_tasks
@@ -14,22 +14,26 @@ defmodule DiscoverMyProject do
       |> Enum.map(fn builder -> Task.async(builder) end)
       |> Enum.map(fn task -> Task.await(task, 9000) end)
 
-		[{url_repo, branches, branch}, [github_repo, issues, pr, contributors, issues_words, pr_words] ] = res
-      {url_repo, branches, branch, github_repo, issues, pr, contributors, issues_words, pr_words}
+    [
+      {url_repo, branches, branch},
+      [github_repo, issues, pr, contributors, issues_words, pr_words]
+    ] = res
+
+    {url_repo, branches, branch, github_repo, issues, pr, contributors, issues_words, pr_words}
   end
 
   defp apply_execution(fun, args), do: fn -> fun.(args) end
 
   def get_data_from_github_api do
-		fn url_repo ->
-			IO.puts("GITHUB API process...")
-			GitHubData.get_data_from_github(url_repo)
+    fn url_repo ->
+      IO.puts("GITHUB API process...")
+      GitHubData.get_data_from_github(url_repo)
     end
   end
 
   def clone_and_get_data_from_repo do
-		fn url_repo ->
-			IO.puts("REPO CLONING AND ANALYZE process...")
+    fn url_repo ->
+      IO.puts("REPO CLONING AND ANALYZE process...")
       IO.puts("1. Starting...")
       repo_dir = GitEngine.clone_repo(url_repo)
       IO.puts("2. Repo cloned...")
@@ -40,6 +44,4 @@ defmodule DiscoverMyProject do
       {url_repo, branches, branch}
     end
   end
-
-
 end

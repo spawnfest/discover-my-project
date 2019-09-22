@@ -16,7 +16,7 @@ defmodule SpawnfestWeb.HomeLive do
   end
 
   def handle_event("search", _params, socket) do
-   {:noreply, socket}
+    {:noreply, socket}
   end
 
   def handle_params(params, _url, socket) do
