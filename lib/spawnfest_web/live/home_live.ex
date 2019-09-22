@@ -11,8 +11,10 @@ defmodule SpawnfestWeb.HomeLive do
 		{:ok, socket}
 	end
 
-	def handle_event("add", params, socket) do
-		{:noreply, socket}
-	end
+  def handle_params(params, _url, socket) do
+    IO.puts "***************"
+    IO.inspect params
+    {:noreply, socket}
+  end
 
 end
