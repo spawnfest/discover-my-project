@@ -79,14 +79,22 @@
           </a>
   	    <% end %>
       </div>
-		  <div class="col-6">
+		  <div class="col-6 text-center">
+        <h2 class="lobster"> Commits frequency by day</h2>
+	      <br>
+	      	<%= raw(@branch.means) %>
+	      <br>
       </div>
     </div>
   </div>
 
   <br><br>
 
-  <div class="container">
+  <div class="container text-center">
+  <p>
+    This is the week workflow model for this project. You will see a heatmap for indicate the most productive days in this project. I analized the commits and generate the counters per hour in every week day.
+  </p><br>
+
     <table class="table table-sm table-bordered text-center">
       <thead>
         <tr>
