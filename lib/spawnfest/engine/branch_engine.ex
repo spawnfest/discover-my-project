@@ -7,12 +7,14 @@ defmodule BranchEngine do
     authors = get_authors_in_branch(commits)
     frequency = FrequencyEngine.get_frequency(commits)
     words = get_words_by_commits(commits)
+    chart_means_html = FrequencyEngine.get_chart_with_means(frequency)
 
     %Branch{
       commits: commits,
       authors: authors,
       words: words,
-      frequency: frequency
+      frequency: frequency,
+      means: chart_means_html
     }
   end
 
