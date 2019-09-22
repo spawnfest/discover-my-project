@@ -12,14 +12,13 @@ defmodule SpawnfestWeb.RepoLive do
 	end
 
   def handle_params(%{"url" => url}, _url, socket) do
-
 		socket =
 			socket
 			|> assign(:url, validate_url(url))
 		{:noreply, socket}
   end
 
-  def validate_url(url) do
+  defp validate_url(url) do
     validation =
       fn
         false -> "error"
