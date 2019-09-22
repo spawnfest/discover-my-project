@@ -4,6 +4,7 @@ defmodule Spawnfest.Application do
 
   def start(_type, _args) do
     children = [
+			SpawnfestWeb.Endpoint,
 			{AnalyzerManager, []}
     ]
 
