@@ -26,6 +26,7 @@ defmodule Utils do
       |> Enum.uniq()
       |> get_counters(words)
       |> Enum.sort_by(fn {_word, counter} -> counter end)
+			|> Enum.reverse()
   end
 
   defp get_counters(words_for_find, words) do
@@ -37,7 +38,7 @@ defmodule Utils do
 
 	def get_authors(commits) do
 		authors = for commit <- commits, do: commit.author
-		List.flatten(authors)
+		authors |> List.flatten |> Enum.uniq()
 	end
 
 	def get_branches_names(branches_string) do

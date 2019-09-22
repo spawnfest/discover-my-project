@@ -1,3 +1,7 @@
+defmodule Branch do
+	defstruct [:commits, :authors, :words, :frequency]
+end
+
 defmodule Commit do
    defstruct [:hash, :description, :author, :date_created, :words]
 end

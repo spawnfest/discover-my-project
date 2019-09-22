@@ -1,4 +1,18 @@
 defmodule BranchEngine do
+
+	def analize_branch(repo_dir) do
+		commits = get_commits_in_branch(repo_dir)
+		authors = get_authors_in_branch(commits)
+		frequency = FrequencyEngine.get_frequency(commits)
+    words = get_words_by_commits(commits)
+		%Branch{
+			commits: commits,
+			authors: authors,
+			words: words,
+			frequency: frequency
+		}
+	end
+
   def get_commits_in_branch(repo_dir) do
     repo_dir
       |> get_commit_history_string()
