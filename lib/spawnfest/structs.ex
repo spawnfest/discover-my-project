@@ -4,6 +4,7 @@ end
 
 defmodule Day do
 	defstruct [
+		hour_0: 0,
 		hour_1: 0,
 		hour_2: 0,
 		hour_3: 0,
