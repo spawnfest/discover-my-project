@@ -16,9 +16,13 @@
 		<div class="row">
 			<div class="col-6 text-center">
 		    <h2 class="lobster"> Discover my project </h2>
-        <img src="https://avatars1.githubusercontent.com/u/671794?s=200&v=4" width="30%"/>
+        <img src="<%= @repo.avatar_url %>" width="30%"/>
         <br><br>
-        <strong><%= @url %></strong>
+        <strong><%= @repo.fullname %></strong>
+        <br>
+        <p><%= @repo.description %></p>
+        <br><br><span class="badge badge-secondary"><small>BRANCH:</small> <%= @repo.default_branch %></span>
+        <br><br><span class="badge badge-success"><small>LANGUAGE:</small> <%= @repo.language %></span>
 			</div>
 			<div class="col-6">
 				<strong>Branches:</strong><br>
@@ -44,7 +48,24 @@
 		</div>
   </div>
 
-<br><br>
+  <br><br>
+
+  <div class="container">
+		<div class="row">
+		  <div class="col-6 text-center">
+        <h3 class="lobster"> GitHub Contributors </h3>
+  	    <%= for contributor <- @contributors do %>
+          <a href="https://github.com/<%= contributor.username %>" target="_blank">
+          <img src="<%= contributor.avatar_url %>" width="15%" class="rounded-circle">
+          </a>
+  	    <% end %>
+      </div>
+		  <div class="col-6">
+      </div>
+    </div>
+  </div>
+
+  <br><br>
 
   <div class="container">
     <table class="table table-sm table-bordered text-center">
