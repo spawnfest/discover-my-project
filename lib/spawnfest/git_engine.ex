@@ -1,4 +1,7 @@
 defmodule GitEngine do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   def clone_repo(repo) do
     date = :os.system_time(:millisecond)
     tmp_dir = "#{System.tmp_dir()}repo-#{date}"

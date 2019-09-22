@@ -1,4 +1,7 @@
 defmodule GitHubApiEngine do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   @api "https://api.github.com/repos/"
   @github_headers [{"Accept", "application/vnd.github.mercy-preview+json"}]
 
@@ -74,6 +77,9 @@ defmodule GitHubApiEngine do
 end
 
 defmodule GitHubUtil do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   def get_repo_and_org(url) do
     url_words = String.split(url, "/")
     [repo | [org | _url_words]] = Enum.reverse(url_words)
@@ -83,6 +89,9 @@ defmodule GitHubUtil do
 end
 
 defmodule GitHubData do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   def get_data_from_github(url) do
     repo_and_org = GitHubUtil.get_repo_and_org(url)
 

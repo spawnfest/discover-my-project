@@ -1,4 +1,7 @@
 defmodule NetworkConsumer do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   @options [recv_timeout: 5000]
 
   def get(url) do

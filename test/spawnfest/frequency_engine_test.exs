@@ -7,7 +7,7 @@ defmodule FrequencyEngineTest do
     assert frequency == expected_frequency()
   end
 
-  defp get_commits() do
+  defp get_commits do
     [
       %Commit{
         author: "Chris McCord",
@@ -40,7 +40,7 @@ defmodule FrequencyEngineTest do
     ]
   end
 
-  defp expected_frequency() do
+  defp expected_frequency do
     %Frequency{
       friday: %Day{
         hour_1: 0,

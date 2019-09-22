@@ -1,12 +1,21 @@
 defmodule Branch do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   defstruct [:commits, :authors, :words, :frequency]
 end
 
 defmodule Commit do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   defstruct [:hash, :description, :author, :date_created, :words]
 end
 
 defmodule Day do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   defstruct hour_0: 0,
             hour_1: 0,
             hour_2: 0,
@@ -35,6 +44,9 @@ defmodule Day do
 end
 
 defmodule Frequency do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   defstruct monday: %Day{},
             tuesday: %Day{},
             wednesday: %Day{},
@@ -45,6 +57,9 @@ defmodule Frequency do
 end
 
 defmodule GitHubRepository do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   defstruct [
     :fullname,
     :avatar_url,
@@ -57,13 +72,22 @@ defmodule GitHubRepository do
 end
 
 defmodule GitHubIssue do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   defstruct [:url, :title, :state, :date_created]
 end
 
 defmodule GitHubPR do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   defstruct [:number, :url, :title, :state, :author]
 end
 
 defmodule GitHubContributor do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   defstruct [:avatar_url, :username, :contributions]
 end

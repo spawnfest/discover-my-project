@@ -1,4 +1,7 @@
 defmodule Utils do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   def get_commits(commit_history) do
     commits = String.split(commit_history, "\'\n\'")
     for commit <- commits, do: get_commit(commit)
@@ -65,6 +68,9 @@ defmodule Utils do
 end
 
 defmodule UtilDate do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   def parse_date(date) do
     [day_in_week, month, day, hour, year, _zulu] = String.split(date, " ")
     month_number = get_month_number(month)

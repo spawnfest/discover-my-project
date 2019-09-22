@@ -1,4 +1,7 @@
 defmodule FrequencyEngine do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   def get_frequency(commits) do
     frequency_counters = %Frequency{}
     update_frequency_counters(commits, frequency_counters)

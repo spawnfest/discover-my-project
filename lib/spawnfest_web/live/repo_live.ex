@@ -1,7 +1,10 @@
 defmodule SpawnfestWeb.RepoLive do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   use Phoenix.LiveView
-  alias SpawnfestWeb.RepoView
   alias SpawnfestWeb.Endpoint
+  alias SpawnfestWeb.RepoView
 
   def render(assigns) do
     RepoView.render("index.html", assigns)

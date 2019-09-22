@@ -1,4 +1,7 @@
 defmodule AnalyzerManager do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   use GenServer
   alias SpawnfestWeb.Endpoint
 

@@ -1,8 +1,11 @@
 defmodule SpawnfestWeb.HomeLive do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   use Phoenix.LiveView
   alias SpawnfestWeb.HomeView
-  alias SpawnfestWeb.Router.Helpers, as: Routes
   alias SpawnfestWeb.RepoLive
+  alias SpawnfestWeb.Router.Helpers, as: Routes
 
   def render(assigns) do
     HomeView.render("index.html", assigns)
@@ -16,7 +19,7 @@ defmodule SpawnfestWeb.HomeLive do
     start_process.({params, socket})
   end
 
-  def start_process() do
+  def start_process do
     fn
       {%{"query" => url}, socket} ->
         {:noreply, live_redirect(socket, to: Routes.live_path(socket, RepoLive, url: url))}

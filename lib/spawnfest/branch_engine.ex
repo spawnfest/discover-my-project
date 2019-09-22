@@ -1,4 +1,7 @@
 defmodule BranchEngine do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   def analize_branch(repo_dir) do
     commits = get_commits_in_branch(repo_dir)
     authors = get_authors_in_branch(commits)

@@ -1,4 +1,7 @@
 defmodule DiscoverMyProject do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   def start_analyze(url_repo) do
     IO.puts("1. Starting...")
     repo_dir = GitEngine.clone_repo(url_repo)

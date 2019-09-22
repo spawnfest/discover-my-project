@@ -1,4 +1,7 @@
 defmodule Spawnfest.Application do
+  @moduledoc """
+    Spawnfest :: Discover my project :: @carlogilmar :: 2019
+  """
   use Application
 
   def start(_type, _args) do
