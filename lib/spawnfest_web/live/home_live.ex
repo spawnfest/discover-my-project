@@ -15,6 +15,10 @@ defmodule SpawnfestWeb.HomeLive do
     {:ok, socket}
   end
 
+  def handle_event("search", _params, socket) do
+   {:noreply, socket}
+  end
+
   def handle_params(params, _url, socket) do
     start_process.({params, socket})
   end
