@@ -65,4 +65,21 @@ defmodule Utils do
       branch_name
     end
   end
+
+  def generate_chart_for_percentajes([mon, tue, wed, thu, fri, sat, sun]) do
+    """
+    <dl>
+      <dt>
+        Commits % per day
+      </dt>
+      <dd class="percentage percentage-#{mon}"><span class="text">Monday</span></dd>
+      <dd class="percentage percentage-#{tue}"><span class="text">Tuesday</span></dd>
+      <dd class="percentage percentage-#{wed}"><span class="text">Wednesday</span></dd>
+      <dd class="percentage percentage-#{thu}"><span class="text">Thursday</span></dd>
+      <dd class="percentage percentage-#{fri}"><span class="text">Friday</span></dd>
+      <dd class="percentage percentage-#{sat}"><span class="text">Saturday</span></dd>
+      <dd class="percentage percentage-#{sun}"><span class="text">Sunday</span></dd>
+    </dl>
+    """
+  end
 end
