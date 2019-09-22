@@ -34,6 +34,12 @@ defmodule FrequencyEngine do
     days[day]
   end
 
+  def get_chart_with_means(frequency) do
+    frequency
+    |> get_means()
+    |> Utils.generate_chart_for_percentajes()
+  end
+
   def get_means(frequency) do
     day_keys = [:monday,  :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
     day_hours =
