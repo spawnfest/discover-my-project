@@ -15,10 +15,8 @@ defmodule AnalyzerManager do
   end
 
   def handle_cast({:get_analysis, url}, state) do
-    IO.puts "Starting..."
     analysis = DiscoverMyProject.start_analyze(url)
-    IO.puts "Finsihs..."
-    Endpoint.broadcast("repo_live_view", "show_analysus", %{repo: [1,2,3]})
+    Endpoint.broadcast("repo_live_view", "show_analysis", %{repo: analysis})
     {:noreply, state}
   end
 end
