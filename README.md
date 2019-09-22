@@ -9,6 +9,8 @@
 
 # DEMO
 
+**"Discover my project"** is about to get information from a *Repo URL*. The idea behind this is analize an Open Source project for know more about his development history and understand how this project was built. For this I tried to analize two information sources: the git data, and the github api. I want to build a platform for generate open source development process based on their version control history for learn more about how this developers are writting software.
+
 ![](guides/demo.gif)
 
 ## Setup
@@ -38,6 +40,17 @@ I made this for ensure quality in the code analysis made by *Credo*
 The main goal is explore an open source project through the git data and the github information. It's inspired in [Git Stats Ruby Gem](https://github.com/tomgi/git_stats).
 
 ![](guides/tres.png)
+
+## Technical Design
+
+The main flow is represented by the  follow illustration:
+
+![](guides/siete.png)
+
+The main flow was wrote in `core.ex`:
+
+![](guides/ocho.png)
+
 
 ## How the project works
 
@@ -88,3 +101,7 @@ Features:
 - Get commits frequency by month
 - Generate the workflow chart for show the repo construction
 - Analize the words used in commits vs words used in PR vs words used in issues
+- Add railway pattern for validate errors when the api don't response
+- Add more validations for get a valid url
+- Accept more platforms: GitLab, etc...
+
