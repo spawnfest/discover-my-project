@@ -1,5 +1,6 @@
 defmodule GitHubApiEngine do
   @api"https://api.github.com/repos/"
+  @github_headers [{"Accept", "application/vnd.github.mercy-preview+json"}]
 
   def get_repo_info({repo, org}) do
     repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}")
@@ -14,6 +15,21 @@ defmodule GitHubApiEngine do
     }
   end
 
+  def get_repo_issues({repo, org}) do
+    repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}/issues?state=all", @github_headers)
+    get_issues(repo_info)
+  end
+
+  defp get_issues(repo_info) do
+    for issue <- repo_info do
+      %GitHubIssue{
+        url: issue["html_url"],
+        title: issue["title"],
+        state: issue["state"],
+        date_created: issue["created_at"]
+      }
+    end
+  end
 end
 
 defmodule GitHubUtil do
