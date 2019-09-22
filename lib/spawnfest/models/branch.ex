@@ -4,4 +4,3 @@ defmodule Branch do
   """
   defstruct [:commits, :authors, :words, :frequency]
 end
-

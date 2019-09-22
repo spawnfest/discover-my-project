@@ -66,4 +66,3 @@ defmodule Utils do
     end
   end
 end
-
