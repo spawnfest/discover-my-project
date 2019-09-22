@@ -11,8 +11,8 @@
 </div>
 <% end %>
 
-<div class="container">
-  <%= if @branches != [] do %>
+<%= if @branches != [] do %>
+  <div class="container">
 		<div class="row">
 			<div class="col-6 text-center">
 		    <h2 class="lobster"> Discover my project </h2>
@@ -42,6 +42,278 @@
 
 			</div>
 		</div>
-  <% end %>
-</div>
+  </div>
+
+<br><br>
+
+  <div class="container">
+    <table class="table table-sm table-bordered text-center">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Monday</th>
+          <th scope="col">Tuesday</th>
+          <th scope="col">Wednesday</th>
+          <th scope="col">Thursday</th>
+          <th scope="col">Friday</th>
+          <th scope="col">Saturday</th>
+          <th scope="col">Sunday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>00:00</td>
+          <td><%= @branch.frequency.monday.hour_0 %></td>
+          <td><%= @branch.frequency.tuesday.hour_0 %></td>
+          <td><%= @branch.frequency.wednesday.hour_0 %></td>
+          <td><%= @branch.frequency.thursday.hour_0 %></td>
+          <td><%= @branch.frequency.friday.hour_0 %></td>
+          <td><%= @branch.frequency.saturday.hour_0 %></td>
+          <td><%= @branch.frequency.sunday.hour_0 %></td>
+        </tr>
+        <tr>
+          <td>01:00</td>
+          <td><%= @branch.frequency.monday.hour_1 %></td>
+          <td><%= @branch.frequency.tuesday.hour_1 %></td>
+          <td><%= @branch.frequency.wednesday.hour_1 %></td>
+          <td><%= @branch.frequency.thursday.hour_1 %></td>
+          <td><%= @branch.frequency.friday.hour_1 %></td>
+          <td><%= @branch.frequency.saturday.hour_1 %></td>
+          <td><%= @branch.frequency.sunday.hour_1 %></td>
+        </tr>
+        <tr>
+          <td>02:00</td>
+          <td><%= @branch.frequency.monday.hour_2 %></td>
+          <td><%= @branch.frequency.tuesday.hour_2 %></td>
+          <td><%= @branch.frequency.wednesday.hour_2 %></td>
+          <td><%= @branch.frequency.thursday.hour_2 %></td>
+          <td><%= @branch.frequency.friday.hour_2 %></td>
+          <td><%= @branch.frequency.saturday.hour_2 %></td>
+          <td><%= @branch.frequency.sunday.hour_2 %></td>
+        </tr>
+        <tr>
+          <td>03:00</td>
+          <td><%= @branch.frequency.monday.hour_3 %></td>
+          <td><%= @branch.frequency.tuesday.hour_3 %></td>
+          <td><%= @branch.frequency.wednesday.hour_3 %></td>
+          <td><%= @branch.frequency.thursday.hour_3 %></td>
+          <td><%= @branch.frequency.friday.hour_3 %></td>
+          <td><%= @branch.frequency.saturday.hour_3 %></td>
+          <td><%= @branch.frequency.sunday.hour_3 %></td>
+        </tr>
+        <tr>
+          <td>04:00</td>
+          <td><%= @branch.frequency.monday.hour_4 %></td>
+          <td><%= @branch.frequency.tuesday.hour_4 %></td>
+          <td><%= @branch.frequency.wednesday.hour_4 %></td>
+          <td><%= @branch.frequency.thursday.hour_4 %></td>
+          <td><%= @branch.frequency.friday.hour_4 %></td>
+          <td><%= @branch.frequency.saturday.hour_4 %></td>
+          <td><%= @branch.frequency.sunday.hour_4 %></td>
+        </tr>
+        <tr>
+          <td>05:00</td>
+          <td><%= @branch.frequency.monday.hour_5 %></td>
+          <td><%= @branch.frequency.tuesday.hour_5 %></td>
+          <td><%= @branch.frequency.wednesday.hour_5 %></td>
+          <td><%= @branch.frequency.thursday.hour_5 %></td>
+          <td><%= @branch.frequency.friday.hour_5 %></td>
+          <td><%= @branch.frequency.saturday.hour_5 %></td>
+          <td><%= @branch.frequency.sunday.hour_5 %></td>
+        </tr>
+        <tr>
+          <td>06:00</td>
+          <td><%= @branch.frequency.monday.hour_6 %></td>
+          <td><%= @branch.frequency.tuesday.hour_6 %></td>
+          <td><%= @branch.frequency.wednesday.hour_6 %></td>
+          <td><%= @branch.frequency.thursday.hour_6 %></td>
+          <td><%= @branch.frequency.friday.hour_6 %></td>
+          <td><%= @branch.frequency.saturday.hour_6 %></td>
+          <td><%= @branch.frequency.sunday.hour_6 %></td>
+        </tr>
+        <tr>
+          <td>07:00</td>
+          <td><%= @branch.frequency.monday.hour_7 %></td>
+          <td><%= @branch.frequency.tuesday.hour_7 %></td>
+          <td><%= @branch.frequency.wednesday.hour_7 %></td>
+          <td><%= @branch.frequency.thursday.hour_7 %></td>
+          <td><%= @branch.frequency.friday.hour_7 %></td>
+          <td><%= @branch.frequency.saturday.hour_7 %></td>
+          <td><%= @branch.frequency.sunday.hour_7 %></td>
+        </tr>
+        <tr>
+          <td>08:00</td>
+          <td><%= @branch.frequency.monday.hour_8 %></td>
+          <td><%= @branch.frequency.tuesday.hour_8 %></td>
+          <td><%= @branch.frequency.wednesday.hour_8 %></td>
+          <td><%= @branch.frequency.thursday.hour_8 %></td>
+          <td><%= @branch.frequency.friday.hour_8 %></td>
+          <td><%= @branch.frequency.saturday.hour_8 %></td>
+          <td><%= @branch.frequency.sunday.hour_8 %></td>
+        </tr>
+        <tr>
+          <td>09:00</td>
+          <td><%= @branch.frequency.monday.hour_9 %></td>
+          <td><%= @branch.frequency.tuesday.hour_9 %></td>
+          <td><%= @branch.frequency.wednesday.hour_9 %></td>
+          <td><%= @branch.frequency.thursday.hour_9 %></td>
+          <td><%= @branch.frequency.friday.hour_9 %></td>
+          <td><%= @branch.frequency.saturday.hour_9 %></td>
+          <td><%= @branch.frequency.sunday.hour_9 %></td>
+        </tr>
+        <tr>
+          <td>10:00</td>
+          <td><%= @branch.frequency.monday.hour_10 %></td>
+          <td><%= @branch.frequency.tuesday.hour_10 %></td>
+          <td><%= @branch.frequency.wednesday.hour_10 %></td>
+          <td><%= @branch.frequency.thursday.hour_10 %></td>
+          <td><%= @branch.frequency.friday.hour_10 %></td>
+          <td><%= @branch.frequency.saturday.hour_10 %></td>
+          <td><%= @branch.frequency.sunday.hour_10 %></td>
+        </tr>
+        <tr>
+          <td>11:00</td>
+          <td><%= @branch.frequency.monday.hour_11 %></td>
+          <td><%= @branch.frequency.tuesday.hour_11 %></td>
+          <td><%= @branch.frequency.wednesday.hour_11 %></td>
+          <td><%= @branch.frequency.thursday.hour_11 %></td>
+          <td><%= @branch.frequency.friday.hour_11 %></td>
+          <td><%= @branch.frequency.saturday.hour_11 %></td>
+          <td><%= @branch.frequency.sunday.hour_11 %></td>
+        </tr>
+        <tr>
+          <td>12:00</td>
+          <td><%= @branch.frequency.monday.hour_12 %></td>
+          <td><%= @branch.frequency.tuesday.hour_12 %></td>
+          <td><%= @branch.frequency.wednesday.hour_12 %></td>
+          <td><%= @branch.frequency.thursday.hour_12 %></td>
+          <td><%= @branch.frequency.friday.hour_12 %></td>
+          <td><%= @branch.frequency.saturday.hour_12 %></td>
+          <td><%= @branch.frequency.sunday.hour_12 %></td>
+        </tr>
+        <tr>
+          <td>13:00</td>
+          <td><%= @branch.frequency.monday.hour_13 %></td>
+          <td><%= @branch.frequency.tuesday.hour_13 %></td>
+          <td><%= @branch.frequency.wednesday.hour_13 %></td>
+          <td><%= @branch.frequency.thursday.hour_13 %></td>
+          <td><%= @branch.frequency.friday.hour_13 %></td>
+          <td><%= @branch.frequency.saturday.hour_13 %></td>
+          <td><%= @branch.frequency.sunday.hour_13 %></td>
+        </tr>
+        <tr>
+          <td>14:00</td>
+          <td><%= @branch.frequency.monday.hour_14 %></td>
+          <td><%= @branch.frequency.tuesday.hour_14 %></td>
+          <td><%= @branch.frequency.wednesday.hour_14 %></td>
+          <td><%= @branch.frequency.thursday.hour_14 %></td>
+          <td><%= @branch.frequency.friday.hour_14 %></td>
+          <td><%= @branch.frequency.saturday.hour_14 %></td>
+          <td><%= @branch.frequency.sunday.hour_14 %></td>
+        </tr>
+        <tr>
+          <td>15:00</td>
+          <td><%= @branch.frequency.monday.hour_15 %></td>
+          <td><%= @branch.frequency.tuesday.hour_15 %></td>
+          <td><%= @branch.frequency.wednesday.hour_15 %></td>
+          <td><%= @branch.frequency.thursday.hour_15 %></td>
+          <td><%= @branch.frequency.friday.hour_15 %></td>
+          <td><%= @branch.frequency.saturday.hour_15 %></td>
+          <td><%= @branch.frequency.sunday.hour_15 %></td>
+        </tr>
+        <tr>
+          <td>16:00</td>
+          <td><%= @branch.frequency.monday.hour_16 %></td>
+          <td><%= @branch.frequency.tuesday.hour_16 %></td>
+          <td><%= @branch.frequency.wednesday.hour_16 %></td>
+          <td><%= @branch.frequency.thursday.hour_16 %></td>
+          <td><%= @branch.frequency.friday.hour_16 %></td>
+          <td><%= @branch.frequency.saturday.hour_16 %></td>
+          <td><%= @branch.frequency.sunday.hour_16 %></td>
+        </tr>
+        <tr>
+          <td>17:00</td>
+          <td><%= @branch.frequency.monday.hour_17 %></td>
+          <td><%= @branch.frequency.tuesday.hour_17 %></td>
+          <td><%= @branch.frequency.wednesday.hour_17 %></td>
+          <td><%= @branch.frequency.thursday.hour_17 %></td>
+          <td><%= @branch.frequency.friday.hour_17 %></td>
+          <td><%= @branch.frequency.saturday.hour_17 %></td>
+          <td><%= @branch.frequency.sunday.hour_17 %></td>
+        </tr>
+        <tr>
+          <td>18:00</td>
+          <td><%= @branch.frequency.monday.hour_18 %></td>
+          <td><%= @branch.frequency.tuesday.hour_18 %></td>
+          <td><%= @branch.frequency.wednesday.hour_18 %></td>
+          <td><%= @branch.frequency.thursday.hour_18 %></td>
+          <td><%= @branch.frequency.friday.hour_18 %></td>
+          <td><%= @branch.frequency.saturday.hour_18 %></td>
+          <td><%= @branch.frequency.sunday.hour_18 %></td>
+        </tr>
+        <tr>
+          <td>19:00</td>
+          <td><%= @branch.frequency.monday.hour_19 %></td>
+          <td><%= @branch.frequency.tuesday.hour_19 %></td>
+          <td><%= @branch.frequency.wednesday.hour_19 %></td>
+          <td><%= @branch.frequency.thursday.hour_19 %></td>
+          <td><%= @branch.frequency.friday.hour_19 %></td>
+          <td><%= @branch.frequency.saturday.hour_19 %></td>
+          <td><%= @branch.frequency.sunday.hour_19 %></td>
+        </tr>
+        <tr>
+          <td>20:00</td>
+          <td><%= @branch.frequency.monday.hour_20 %></td>
+          <td><%= @branch.frequency.tuesday.hour_20 %></td>
+          <td><%= @branch.frequency.wednesday.hour_20 %></td>
+          <td><%= @branch.frequency.thursday.hour_20 %></td>
+          <td><%= @branch.frequency.friday.hour_20 %></td>
+          <td><%= @branch.frequency.saturday.hour_20 %></td>
+          <td><%= @branch.frequency.sunday.hour_20 %></td>
+        </tr>
+        <tr>
+          <td>21:00</td>
+          <td><%= @branch.frequency.monday.hour_21 %></td>
+          <td><%= @branch.frequency.tuesday.hour_21 %></td>
+          <td><%= @branch.frequency.wednesday.hour_21 %></td>
+          <td><%= @branch.frequency.thursday.hour_21 %></td>
+          <td><%= @branch.frequency.friday.hour_21 %></td>
+          <td><%= @branch.frequency.saturday.hour_21 %></td>
+          <td><%= @branch.frequency.sunday.hour_21 %></td>
+        </tr>
+        <tr>
+          <td>22:00</td>
+          <td><%= @branch.frequency.monday.hour_22 %></td>
+          <td><%= @branch.frequency.tuesday.hour_22 %></td>
+          <td><%= @branch.frequency.wednesday.hour_22 %></td>
+          <td><%= @branch.frequency.thursday.hour_22 %></td>
+          <td><%= @branch.frequency.friday.hour_22 %></td>
+          <td><%= @branch.frequency.saturday.hour_22 %></td>
+          <td><%= @branch.frequency.sunday.hour_22 %></td>
+        </tr>
+        <tr>
+          <td>23:00</td>
+          <td><%= @branch.frequency.monday.hour_23 %></td>
+          <td><%= @branch.frequency.tuesday.hour_23 %></td>
+          <td><%= @branch.frequency.wednesday.hour_23 %></td>
+          <td><%= @branch.frequency.thursday.hour_23 %></td>
+          <td><%= @branch.frequency.friday.hour_23 %></td>
+          <td><%= @branch.frequency.saturday.hour_23 %></td>
+          <td><%= @branch.frequency.sunday.hour_23 %></td>
+        </tr>
+        <tr>
+          <td>24:00</td>
+          <td><%= @branch.frequency.monday.hour_24 %></td>
+          <td><%= @branch.frequency.tuesday.hour_24 %></td>
+          <td><%= @branch.frequency.wednesday.hour_24 %></td>
+          <td><%= @branch.frequency.thursday.hour_24 %></td>
+          <td><%= @branch.frequency.friday.hour_24 %></td>
+          <td><%= @branch.frequency.saturday.hour_24 %></td>
+          <td><%= @branch.frequency.sunday.hour_24 %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
 
