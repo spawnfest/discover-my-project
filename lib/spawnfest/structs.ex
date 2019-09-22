@@ -54,3 +54,7 @@ end
 defmodule GitHubIssue do
   defstruct [:url, :title, :state, :date_created]
 end
+
+defmodule GitHubPR do
+  defstruct [:number, :url, :title, :state, :author]
+end

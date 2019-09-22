@@ -30,6 +30,24 @@ defmodule GitHubApiEngine do
       }
     end
   end
+
+  def get_repo_pull_requests({repo, org}) do
+    repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}/pulls?state=all", @github_headers)
+    get_pull_requests(repo_info)
+  end
+
+  def get_pull_requests(pulls) do
+    for pull <- pulls do
+      %GitHubPR{
+        number: pull["number"],
+        title: pull["title"],
+        state: pull["state"],
+        url: pull["html_url"],
+        author: pull["author_association"]
+      }
+    end
+  end
+
 end
 
 defmodule GitHubUtil do
