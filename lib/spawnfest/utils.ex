@@ -27,6 +27,15 @@ defmodule Utils do
       |> get_counters(words)
       |> Enum.sort_by(fn {_word, counter} -> counter end)
 			|> Enum.reverse()
+			|> get_most_recurrent_words()
+  end
+
+  def get_most_recurrent_words( counters ) do
+    size = length(counters)
+    case size do
+      size when size < 25 -> counters
+      _ -> Enum.slice( counters, 0, 25)
+    end
   end
 
   defp get_counters(words_for_find, words) do
