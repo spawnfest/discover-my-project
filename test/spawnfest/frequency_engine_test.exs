@@ -11,7 +11,7 @@ defmodule FrequencyEngineTest do
     commits = get_commits()
     frequency = FrequencyEngine.get_frequency(commits)
     means = FrequencyEngine.get_means(frequency)
-    assert means ==  [0, 0, 50, 25, 0, 0, 25]
+    assert means == [0, 0, 50, 25, 0, 0, 25]
   end
 
   defp get_commits do
