@@ -22,7 +22,7 @@ defmodule SpawnfestWeb.RepoLive do
   def validate_url(url) do
     validation =
       fn
-        false -> "Please, try again, this isn't a valid repo url"
+        false -> "error"
         _ -> url
       end
     url_validation = String.contains?(url, "github")
