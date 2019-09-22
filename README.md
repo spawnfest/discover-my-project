@@ -19,6 +19,7 @@ I implemented a git hook for add some valuable tools, so please for development 
 The main goal for this hook is run credo before to make a push to the remote repository, if there are some credo suggestions, the push will be stopped, if you don't have suggestions the push will be uploaded.
 
 Example
-![](https://p10.f2.n0.cdn.getcloudapp.com/items/E0ulxmr7/Screen+Recording+2019-09-22+at+10.45+AM.gif?v=ce3356bd814b7d32783fd66a6e18168c)
+
+![](guides/credo_hook.gif)
 
 I made this for ensure quality in the code analysis made by *Credo*
