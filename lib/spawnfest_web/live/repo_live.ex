@@ -10,7 +10,7 @@ defmodule SpawnfestWeb.RepoLive do
     RepoView.render("index.html", assigns)
   end
 
-  def mount(session, socket) do
+  def mount(_session, socket) do
     Endpoint.subscribe("repo_live_view")
     {:ok, socket}
   end
@@ -18,7 +18,9 @@ defmodule SpawnfestWeb.RepoLive do
   def handle_info(
         %{
           event: "show_analysis",
-          payload: %{repo: {url_repo, branches, branch, github_repo, issues, prs, contributors}}
+          payload: %{repo:
+            {url_repo, branches, branch, github_repo,
+              issues, prs, contributors, issues_words, prs_words}}
         },
         socket
       ) do
@@ -31,6 +33,8 @@ defmodule SpawnfestWeb.RepoLive do
       |> assign(:issues, issues)
       |> assign(:prs, prs)
       |> assign(:contributors, contributors)
+      |> assign(:issues_words, issues_words)
+      |> assign(:prs_words, prs_words)
 
     {:noreply, socket}
   end
