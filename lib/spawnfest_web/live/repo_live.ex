@@ -12,10 +12,22 @@ defmodule SpawnfestWeb.RepoLive do
 	end
 
   def handle_params(%{"url" => url}, _url, socket) do
+
 		socket =
 			socket
-			|> assign(:url, url)
+			|> assign(:url, validate_url(url))
 		{:noreply, socket}
   end
 
+  def validate_url(url) do
+    validation =
+      fn
+        false -> "Please, try again, this isn't a valid repo url"
+        _ -> url
+      end
+    url_validation = String.contains?(url, "github")
+                       &&  String.contains?(url, "https")
+                       &&  String.contains?(url, ".git")
+    validation.(url_validation)
+  end
 end
