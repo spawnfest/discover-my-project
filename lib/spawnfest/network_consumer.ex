@@ -1,5 +1,4 @@
 defmodule NetworkConsumer do
-
   @options [recv_timeout: 5000]
 
   def get(url) do

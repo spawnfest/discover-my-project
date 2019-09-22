@@ -32,7 +32,7 @@ defmodule Spawnfest.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:phoenix_live_view, github:  "phoenixframework/phoenix_live_view"},
+      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
       {:poison, "~> 3.1"},
       {:httpoison, "~> 1.5"},
       {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false}

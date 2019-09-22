@@ -1,10 +1,11 @@
 defmodule GitHubApiEngine do
-  @api"https://api.github.com/repos/"
+  @api "https://api.github.com/repos/"
   @github_headers [{"Accept", "application/vnd.github.mercy-preview+json"}]
 
   def get_repo_info do
     fn {repo, org} ->
       repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}", @github_headers)
+
       %GitHubRepository{
         fullname: repo_info["full_name"],
         avatar_url: repo_info["owner"]["avatar_url"],
@@ -19,9 +20,9 @@ defmodule GitHubApiEngine do
 
   def get_repo_issues do
     fn {repo, org} ->
-    	repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}/issues?state=all", @github_headers)
-    	get_issues(repo_info)
-		end
+      repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}/issues?state=all", @github_headers)
+      get_issues(repo_info)
+    end
   end
 
   defp get_issues(repo_info) do
@@ -37,9 +38,9 @@ defmodule GitHubApiEngine do
 
   def get_repo_pull_requests do
     fn {repo, org} ->
-    	repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}/pulls?state=all", @github_headers)
-    	get_pull_requests(repo_info)
-		end
+      repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}/pulls?state=all", @github_headers)
+      get_pull_requests(repo_info)
+    end
   end
 
   defp get_pull_requests(pulls) do
@@ -58,7 +59,7 @@ defmodule GitHubApiEngine do
     fn {repo, org} ->
       repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}/contributors", @github_headers)
       get_contributors(repo_info)
-		end
+    end
   end
 
   def get_contributors(repo_info) do
@@ -70,33 +71,34 @@ defmodule GitHubApiEngine do
       }
     end
   end
-
 end
 
 defmodule GitHubUtil do
   def get_repo_and_org(url) do
     url_words = String.split(url, "/")
-    [repo|[org|_url_words]] = Enum.reverse(url_words)
+    [repo | [org | _url_words]] = Enum.reverse(url_words)
     [repo, ""] = String.split(repo, ".git")
     {repo, org}
   end
 end
 
 defmodule GitHubData do
-
   def get_data_from_github(url) do
     repo_and_org = GitHubUtil.get_repo_and_org(url)
-    api_request =
-			[{GitHubApiEngine.get_repo_info, repo_and_org},
-			{GitHubApiEngine.get_repo_issues, repo_and_org},
-			{GitHubApiEngine.get_repo_pull_requests, repo_and_org},
-			{GitHubApiEngine.get_repo_contributors, repo_and_org}]
-		res =
+
+    api_request = [
+      {GitHubApiEngine.get_repo_info(), repo_and_org},
+      {GitHubApiEngine.get_repo_issues(), repo_and_org},
+      {GitHubApiEngine.get_repo_pull_requests(), repo_and_org},
+      {GitHubApiEngine.get_repo_contributors(), repo_and_org}
+    ]
+
+    res =
       api_request
       |> Enum.map(fn {builder, args} -> apply_execution(builder, args) end)
       |> Enum.map(fn builder -> Task.async(builder) end)
       |> Enum.map(fn task -> Task.await(task, 9000) end)
   end
 
-	defp apply_execution(fun, args), do: fn -> fun.(args) end
+  defp apply_execution(fun, args), do: fn -> fun.(args) end
 end

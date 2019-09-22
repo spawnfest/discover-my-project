@@ -1,6 +1,6 @@
 defmodule AnalyzerManager do
   use GenServer
-	alias SpawnfestWeb.Endpoint
+  alias SpawnfestWeb.Endpoint
 
   def start_link(_opts \\ []) do
     GenServer.start_link(__MODULE__, nil, name: __MODULE__)

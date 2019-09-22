@@ -1,11 +1,10 @@
 defmodule Spawnfest.Application do
-
   use Application
 
   def start(_type, _args) do
     children = [
-			SpawnfestWeb.Endpoint,
-			{AnalyzerManager, []}
+      SpawnfestWeb.Endpoint,
+      {AnalyzerManager, []}
     ]
 
     opts = [strategy: :one_for_one, name: Spawnfest.Supervisor]
