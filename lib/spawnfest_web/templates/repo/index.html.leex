@@ -53,6 +53,25 @@
   <div class="container">
 		<div class="row">
 		  <div class="col-6 text-center">
+				<strong>Words Used in GitHub Issues Descriptions:</strong><br>
+  	    <%= for {word, frequency} <- @issues_words do %>
+  	    	<span class="badge badge-light"><%= word %> <%= frequency %></span> &nbsp;
+  	    <% end %>
+			</div>
+		  <div class="col-6 text-center">
+				<strong>Words Used in GitHub Pull Requests Descriptions:</strong><br>
+  	    <%= for {word, frequency} <- @prs_words do %>
+  	    	<span class="badge badge-light"><%= word %> <%= frequency %></span> &nbsp;
+  	    <% end %>
+			</div>
+		</div>
+  </div>
+
+  <br><br>
+
+  <div class="container">
+		<div class="row">
+		  <div class="col-6 text-center">
         <h3 class="lobster"> GitHub Contributors </h3>
   	    <%= for contributor <- @contributors do %>
           <a href="https://github.com/<%= contributor.username %>" target="_blank">
