@@ -13,12 +13,16 @@ defmodule SpawnfestWeb.RepoLive do
 		{:ok, socket}
 	end
 
-  def handle_info(%{event: "show_analysis", payload: %{repo: {url_repo, branches, branch}}}, socket) do
+  def handle_info(%{event: "show_analysis", payload: %{repo: {url_repo, branches, branch, github_repo, issues, prs, contributors}}}, socket) do
 		socket =
 			socket
 			|> assign(:url, url_repo)
 			|> assign(:branches, branches)
 			|> assign(:branch, branch)
+      |> assign(:repo, github_repo)
+      |> assign(:issues, issues)
+      |> assign(:prs, prs)
+      |> assign(:contributors, contributors)
     {:noreply, socket}
   end
 
