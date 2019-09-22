@@ -45,12 +45,11 @@ The main goal is explore an open source project through the git data and the git
 
 The main flow is represented by the  follow illustration:
 
-![](guides/siete.png)
+![](guides/siete.jpg)
 
 The main flow was wrote in `core.ex`:
 
-![](guides/ocho.png)
-
+![](guides/ocho.jpg)
 
 ## How the project works
 
