@@ -3,7 +3,7 @@ defmodule GitHubApiEngine do
   @github_headers [{"Accept", "application/vnd.github.mercy-preview+json"}]
 
   def get_repo_info({repo, org}) do
-    repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}")
+    repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}", @github_headers)
     %GitHubRepository{
       fullname: repo_info["full_name"],
       avatar_url: repo_info["owner"]["avatar_url"],

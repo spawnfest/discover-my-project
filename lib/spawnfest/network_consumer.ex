@@ -1,12 +1,14 @@
 defmodule NetworkConsumer do
 
+  @options [recv_timeout: 5000]
+
   def get(url) do
     response = HTTPoison.get!(url)
     get_response(response)
   end
 
   def get(url, headers) do
-    response = HTTPoison.get!(url, headers)
+    response = HTTPoison.get!(url, headers, @options)
     get_response(response)
   end
 
