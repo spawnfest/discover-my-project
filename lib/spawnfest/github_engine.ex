@@ -48,6 +48,21 @@ defmodule GitHubApiEngine do
     end
   end
 
+  def get_repo_contributors({repo, org}) do
+    repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}/contributors", @github_headers)
+    get_contributors(repo_info)
+  end
+
+  def get_contributors(repo_info) do
+    for contributor <- repo_info do
+      %GitHubContributor{
+        avatar_url: contributor["avatar_url"],
+        username: contributor["login"],
+        contributions: contributor["contributions"]
+      }
+    end
+  end
+
 end
 
 defmodule GitHubUtil do

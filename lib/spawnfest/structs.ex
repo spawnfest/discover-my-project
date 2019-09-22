@@ -58,3 +58,7 @@ end
 defmodule GitHubPR do
   defstruct [:number, :url, :title, :state, :author]
 end
+
+defmodule GitHubContributor do
+  defstruct [:avatar_url, :username, :contributions]
+end
