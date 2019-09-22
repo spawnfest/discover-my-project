@@ -20,7 +20,7 @@ defmodule FrequencyEngine do
 	defp get_day_key(day) do
 		days =
 		  %{"Mon" => :monday, "Tue" => :tuesday, "Wed" => :wednesday,
-			"Thu" => :thursday, "Fri" => :friday, "Sat" => :saturday, "Sun" => "sunday"}
+			"Thu" => :thursday, "Fri" => :friday, "Sat" => :saturday, "Sun" => :sunday}
 		days[day]
 	end
 end

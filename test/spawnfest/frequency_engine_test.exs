@@ -18,7 +18,7 @@ defmodule FrequencyEngineTest do
 			},
 			%Commit{
 				author: "Andrey Zaika",
-				date_created: {"Thu", ~U[2019-09-19 15:08:25Z]},
+				date_created: {"Sun", ~U[2019-09-19 15:08:25Z]},
 				description: "fix typo",
 				hash: "681f98a",
 				words: ["fix", "typo"]
@@ -127,7 +127,7 @@ defmodule FrequencyEngineTest do
 				hour_12: 0,
 				hour_13: 0,
 				hour_14: 0,
-				hour_15: 0,
+				hour_15: 1,
 				hour_16: 0,
 				hour_17: 0,
 				hour_18: 0,
@@ -153,7 +153,7 @@ defmodule FrequencyEngineTest do
 				hour_12: 0,
 				hour_13: 0,
 				hour_14: 0,
-				hour_15: 1,
+				hour_15: 0,
 				hour_16: 0,
 				hour_17: 0,
 				hour_18: 0,
