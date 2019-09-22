@@ -13,11 +13,12 @@ defmodule SpawnfestWeb.RepoLive do
 		{:ok, socket}
 	end
 
-  def handle_info(%{event: "show_analysis", payload: payload}, socket) do
-
-		IO.puts "aue onda!!***************"
-		IO.inspect payload
-
+  def handle_info(%{event: "show_analysis", payload: %{repo: {url_repo, branches, branch}}}, socket) do
+		socket =
+			socket
+			|> assign(:url, url_repo)
+			|> assign(:branches, branches)
+			|> assign(:branch, branch)
     {:noreply, socket}
   end
 
@@ -25,6 +26,15 @@ defmodule SpawnfestWeb.RepoLive do
 		socket =
 			socket
 			|> assign(:url, validate_url(url))
+			|> assign(:branches, [])
+		{:noreply, socket}
+  end
+
+  def handle_params(%{}, _url, socket) do
+		socket =
+			socket
+			|> assign(:url, "error")
+			|> assign(:branches, [])
 		{:noreply, socket}
   end
 
@@ -32,7 +42,10 @@ defmodule SpawnfestWeb.RepoLive do
     validation =
       fn
         false -> "error"
-        _ -> url
+        _ ->
+					#Starting...
+					_ = AnalyzerManager.get_analysis(url)
+					url
       end
     url_validation = String.contains?(url, "github")
                        &&  String.contains?(url, "https")
