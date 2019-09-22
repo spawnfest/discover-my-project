@@ -1,0 +1,37 @@
+#!/bin/sh
+
+echo "Git fetch..."
+git fetch
+
+echo "[running] Spawnfest 2019 :: Pre Commit Hook :: @carlogilmar"
+
+echo "[running] mix format"
+mix format
+
+echo "[running] ===  ==="
+echo "[running] mix credo"
+mix credo
+CREDO_RES=$?
+
+if [ $CREDO_RES -ge 1 ]; then
+  echo "======================================="
+  echo "   Por favor refactoriza tu código "
+  echo "======================================="
+  echo "         :: Bonito día 😠  :: "
+  echo ""
+  exit $CREDO_RES
+fi
+if [ $CREDO_RES -le 9 ]; then CREDO_RES=" $CREDO_RES"; fi
+  echo "======================================="
+  echo "    No hay warnings por corregir 😎 "
+  echo "          :: Bonito día :: "
+  echo "======================================="
+
+echo ""
+echo ""
+echo "[Done] Listo."
+echo ""
+echo ""
+
+# Finished
+exit 0
