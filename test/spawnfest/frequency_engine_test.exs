@@ -1,10 +1,17 @@
 defmodule FrequencyEngineTest do
   use ExUnit.Case
 
-  test "" do
+  test "Getting the frequency" do
     commits = get_commits()
     frequency = FrequencyEngine.get_frequency(commits)
     assert frequency == expected_frequency()
+  end
+
+  test "Getting the frequency means" do
+    commits = get_commits()
+    frequency = FrequencyEngine.get_frequency(commits)
+    means = FrequencyEngine.get_means(frequency)
+    assert means ==  [0, 0, 50, 25, 0, 0, 25]
   end
 
   defp get_commits do
@@ -40,7 +47,7 @@ defmodule FrequencyEngineTest do
     ]
   end
 
-  defp expected_frequency do
+  def expected_frequency do
     %Frequency{
       friday: %Day{
         hour_1: 0,

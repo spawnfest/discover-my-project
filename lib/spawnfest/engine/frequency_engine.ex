@@ -33,4 +33,24 @@ defmodule FrequencyEngine do
 
     days[day]
   end
+
+  def get_means(frequency) do
+    day_keys = [:monday,  :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday]
+    day_hours =
+      for day <- day_keys do
+        day = Map.get(frequency, day)
+        [_struct|values] = Map.values(day)
+        values
+      end
+    total_hours = day_hours |> List.flatten |> Enum.sum
+    hours_per_day = for day_hour <- day_hours, do: Enum.sum(day_hour)
+    get_means_per_day(total_hours, hours_per_day)
+  end
+
+  def get_means_per_day(total, hours_per_day) do
+    for hours <- hours_per_day do
+      mean = (hours*100)/total
+      Kernel.trunc(mean)
+    end
+  end
 end
