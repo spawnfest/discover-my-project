@@ -2,14 +2,24 @@ defmodule SpawnfestWeb.RepoLive do
 
 	use Phoenix.LiveView
 	alias SpawnfestWeb.RepoView
+	alias SpawnfestWeb.Endpoint
 
 	def render(assigns) do
 		RepoView.render("index.html", assigns)
 	end
 
 	def mount(session, socket) do
+		Endpoint.subscribe("repo_live_view")
 		{:ok, socket}
 	end
+
+  def handle_info(%{event: "show_analysis", payload: payload}, socket) do
+
+		IO.puts "aue onda!!***************"
+		IO.inspect payload
+
+    {:noreply, socket}
+  end
 
   def handle_params(%{"url" => url}, _url, socket) do
 		socket =
