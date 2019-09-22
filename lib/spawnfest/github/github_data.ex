@@ -17,6 +17,11 @@ defmodule GitHubData do
       |> Enum.map(fn {builder, args} -> apply_execution(builder, args) end)
       |> Enum.map(fn builder -> Task.async(builder) end)
       |> Enum.map(fn task -> Task.await(task, 9000) end)
+
+    [repo, issues, prs, contributors] = res
+    issues_words = GitHubUtil.get_most_used_words(issues)
+    pr_words = GitHubUtil.get_most_used_words(prs)
+    [repo, issues, prs, contributors, issues_words, pr_words]
   end
 
   defp apply_execution(fun, args), do: fn -> fun.(args) end

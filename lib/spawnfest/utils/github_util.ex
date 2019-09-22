@@ -15,4 +15,11 @@ defmodule GitHubUtil do
       desc -> desc
     end
   end
+
+  def get_most_used_words(structs) do
+    titles = for struct <- structs, do: struct.title
+    words = for title <- titles, do: String.split(title, " ")
+    words = List.flatten(words)
+    Utils.get_words_counters(words)
+  end
 end
