@@ -50,3 +50,7 @@ end
 defmodule GitHubRepository do
   defstruct [:fullname, :avatar_url, :description, :open_issues, :forks, :language, :default_branch]
 end
+
+defmodule GitHubIssue do
+  defstruct [:url, :title, :state, :date_created]
+end
