@@ -7,7 +7,7 @@
 <hr>
 	<p>Instructions: Paste a valid <strong>url</strong> for clone a public git repo from GitHub. </p>
   <form phx-change="search">
-    <input class="form-control form-control-lg" type="text" name="query" placeholder="Put your https git url" />
+    <input class="form-control form-control-lg" required type="text" name="query" placeholder="Put your https git url" />
 		<br>
 		<%= submit "Analize", phx_disable_with: "Saving...", class: "btn btn-primary btn-block" %>
   </form>

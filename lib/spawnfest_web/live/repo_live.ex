@@ -7,7 +7,15 @@ defmodule SpawnfestWeb.RepoLive do
 		RepoView.render("index.html", assigns)
 	end
 
-	def mount(_session, socket) do
+	def mount(session, socket) do
 		{:ok, socket}
 	end
+
+  def handle_params(%{"url" => url}, _url, socket) do
+		socket =
+			socket
+			|> assign(:url, url)
+		{:noreply, socket}
+  end
+
 end
