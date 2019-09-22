@@ -10,13 +10,13 @@ defmodule GitHubApiEngine do
       repo_info = NetworkConsumer.get("#{@api}#{org}/#{repo}", @github_headers)
 
       %GitHubRepository{
-        fullname: repo_info["full_name"],
-        avatar_url: repo_info["owner"]["avatar_url"],
-        description: repo_info["description"],
-        open_issues: repo_info["open_issues"],
-        forks: repo_info["forks"],
-        language: repo_info["language"],
-        default_branch: repo_info["default_branch"]
+        fullname: GitHubUtil.set_default_response.(repo_info["full_name"]),
+        avatar_url: GitHubUtil.set_default_response.(repo_info["owner"]["avatar_url"]),
+        description: GitHubUtil.set_default_response.(repo_info["description"]),
+        open_issues: GitHubUtil.set_default_response.(repo_info["open_issues"]),
+        forks: GitHubUtil.set_default_response.(repo_info["forks"]),
+        language: GitHubUtil.set_default_response.(repo_info["language"]),
+        default_branch: GitHubUtil.set_default_response.(repo_info["default_branch"])
       }
     end
   end
@@ -31,10 +31,10 @@ defmodule GitHubApiEngine do
   defp get_issues(repo_info) do
     for issue <- repo_info do
       %GitHubIssue{
-        url: issue["html_url"],
-        title: issue["title"],
-        state: issue["state"],
-        date_created: issue["created_at"]
+        url: GitHubUtil.set_default_response.(issue["html_url"]),
+        title: GitHubUtil.set_default_response.(issue["title"]),
+        state: GitHubUtil.set_default_response.(issue["state"]),
+        date_created: GitHubUtil.set_default_response.(issue["created_at"])
       }
     end
   end
@@ -49,11 +49,11 @@ defmodule GitHubApiEngine do
   defp get_pull_requests(pulls) do
     for pull <- pulls do
       %GitHubPR{
-        number: pull["number"],
-        title: pull["title"],
-        state: pull["state"],
-        url: pull["html_url"],
-        author: pull["author_association"]
+        number: GitHubUtil.set_default_response.(pull["number"]),
+        title: GitHubUtil.set_default_response.(pull["title"]),
+        state: GitHubUtil.set_default_response.(pull["state"]),
+        url: GitHubUtil.set_default_response.(pull["html_url"]),
+        author: GitHubUtil.set_default_response.(pull["author_association"])
       }
     end
   end
@@ -68,9 +68,9 @@ defmodule GitHubApiEngine do
   def get_contributors(repo_info) do
     for contributor <- repo_info do
       %GitHubContributor{
-        avatar_url: contributor["avatar_url"],
-        username: contributor["login"],
-        contributions: contributor["contributions"]
+        avatar_url: GitHubUtil.set_default_response.(contributor["avatar_url"]),
+        username: GitHubUtil.set_default_response.(contributor["login"]),
+        contributions: GitHubUtil.set_default_response.(contributor["contributions"])
       }
     end
   end

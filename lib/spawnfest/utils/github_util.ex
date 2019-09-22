@@ -8,4 +8,11 @@ defmodule GitHubUtil do
     [repo, ""] = String.split(repo, ".git")
     {repo, org}
   end
+
+  def set_default_response do
+    fn
+      nil -> "No provided."
+      desc -> desc
+    end
+  end
 end
