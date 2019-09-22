@@ -18,11 +18,9 @@ defmodule SpawnfestWeb.RepoLive do
   def handle_info(
         %{
           event: "show_analysis",
-          payload: %{
-            repo:
-              {url_repo, branches, branch, github_repo, issues, prs, contributors, issues_words,
-               prs_words}
-          }
+          payload: %{repo:
+            {url_repo, branches, branch, github_repo,
+              issues, prs, contributors, issues_words, prs_words}}
         },
         socket
       ) do
@@ -45,7 +43,7 @@ defmodule SpawnfestWeb.RepoLive do
     socket =
       socket
       |> assign(:url, validate_url(url))
-      |> assign(:branches, [])
+      |> assign(:branches, nil)
 
     {:noreply, socket}
   end
@@ -54,7 +52,7 @@ defmodule SpawnfestWeb.RepoLive do
     socket =
       socket
       |> assign(:url, "error")
-      |> assign(:branches, [])
+      |> assign(:branches, nil)
 
     {:noreply, socket}
   end
