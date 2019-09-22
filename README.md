@@ -7,6 +7,10 @@
 
 **Project made for Spawnfest 2019 🇲🇽**
 
+# DEMO
+
+![](guides/demo.gif)
+
 ## Setup
 
   * Install dependencies with `mix deps.get`
